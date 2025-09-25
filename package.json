@@ -9,7 +9,23 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --ext .ts, .vue",
-    "format": "prettier --write \"**/*.{ts,vue,js,json,md}\""
+    "lint:check": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "format": "prettier --write \"**/*.{ts,vue,js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "vitest run",
+    "test:unit": "vitest run --dir tests/unit",
+    "test:watch": "vitest",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "test/**/*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "nuxt": "^4.1.2",
@@ -17,6 +33,10 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@vue/test-utils": "^2.4.6",
+    "husky": "^8.0.3",
+    "prettier": "^3.6.2",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.8"
   }
 }
