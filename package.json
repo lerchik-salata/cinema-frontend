@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "cross-env NUXT_PORT=3001 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -28,12 +28,14 @@
     ]
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "nuxt": "^4.1.2",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^2.4.6",
+    "cross-env": "^10.1.0",
     "eslint": "^9.36.0",
     "eslint-plugin-vue": "^10.5.0",
     "husky": "^8.0.3",
