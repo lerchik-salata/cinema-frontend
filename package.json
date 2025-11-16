@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "cross-env NUXT_PORT=3001 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -18,28 +18,31 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "test/**/*.ts": [
+    "*.{ts}": [
       "prettier --write",
       "eslint --fix"
     ]
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@pinia/nuxt": "^0.11.3",
+    "axios": "^1.13.2",
+    "defu": "^6.1.4",
     "nuxt": "^4.1.2",
+    "pinia": "^3.0.4",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.36.0",
-    "eslint-plugin-vue": "^10.5.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.5.1",
     "husky": "^8.0.3",
     "prettier": "^3.6.2",
     "typescript-eslint": "^8.45.0",
     "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.0.8"
   }
 }
