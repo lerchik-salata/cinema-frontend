@@ -1,23 +1,12 @@
 <template>
-  <div v-if="pendingMovie || pendingTrailers">
-    Завантаження...
-  </div>
+  <div v-if="pendingMovie || pendingTrailers">Завантаження...</div>
   <div v-else-if="movieError">
     <h1>Помилка</h1>
     <p>{{ movieError.message }}</p>
-    <NuxtLink to="/">
-      Повернутись до пошуку
-    </NuxtLink>
+    <NuxtLink to="/">Повернутись до пошуку</NuxtLink>
   </div>
-  <div
-    v-else-if="movie"
-    class="movie-details"
-  >
-    <img
-      :src="movie.poster_path"
-      :alt="movie.title"
-      class="poster"
-    >
+  <div v-else-if="movie" class="movie-details">
+    <img :src="movie.poster_path" :alt="movie.title" class="poster" />
     <div class="info">
       <h1>{{ movie.title }} ({{ movie.release_date.split("-")[0] }})</h1>
       <p class="overview">
@@ -27,10 +16,7 @@
       <h3>Рейтинги</h3>
       <ul class="ratings">
         <li>TMDB: {{ movie.vote_average_tmdb }} / 10</li>
-        <li
-          v-for="(rating, index) in movie.ratings_omdb"
-          :key="index"
-        >
+        <li v-for="(rating, index) in movie.ratings_omdb" :key="index">
           {{ rating.Source }}: {{ rating.Value }}
         </li>
       </ul>
@@ -42,18 +28,9 @@
       <div v-if="trailersError">
         <p>Не вдалося завантажити трейлери.</p>
       </div>
-      <div
-        v-else
-        class="trailers"
-      >
-        <div
-          v-for="trailer in trailers"
-          :key="trailer.key"
-        >
-          <a
-            :href="'https://www.youtube.com/watch?v=' + trailer.key"
-            target="_blank"
-          >
+      <div v-else class="trailers">
+        <div v-for="trailer in trailers" :key="trailer.key">
+          <a :href="'https://www.youtube.com/watch?v=' + trailer.key" target="_blank">
             {{ trailer.name }}
           </a>
         </div>

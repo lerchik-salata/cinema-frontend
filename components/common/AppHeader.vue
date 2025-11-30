@@ -1,55 +1,18 @@
 <template>
   <header class="main-header">
     <div class="header-content">
-      <NuxtLink
-        to="/"
-        class="app-logo"
-      >
-        Movie Aggregator
-      </NuxtLink>
+      <NuxtLink to="/" class="app-logo">Movie Aggregator</NuxtLink>
 
-      <nav
-        v-if="isAuth"
-        class="nav-menu"
-      >
-        <NuxtLink
-          v-if="isAdmin"
-          to="/admin"
-          class="nav-link nav-link-admin"
-        >
-          Адмінка
-        </NuxtLink>
+      <nav v-if="isAuth" class="nav-menu">
+        <NuxtLink v-if="isAdmin" to="/admin" class="nav-link nav-link-admin">Адмінка</NuxtLink>
 
-        <NuxtLink
-          to="/profile"
-          class="nav-link"
-        >
-          Профіль
-        </NuxtLink>
-        <button
-          class="logout-button"
-          @click="logout"
-        >
-          Вийти
-        </button>
+        <NuxtLink to="/profile" class="nav-link">Профіль</NuxtLink>
+        <button class="logout-button" @click="logout">Вийти</button>
       </nav>
 
-      <nav
-        v-else
-        class="nav-menu"
-      >
-        <NuxtLink
-          to="/login"
-          class="nav-link"
-        >
-          Увійти
-        </NuxtLink>
-        <NuxtLink
-          to="/register"
-          class="nav-link nav-link-primary"
-        >
-          Реєстрація
-        </NuxtLink>
+      <nav v-else class="nav-menu">
+        <NuxtLink to="/login" class="nav-link">Увійти</NuxtLink>
+        <NuxtLink to="/register" class="nav-link nav-link-primary">Реєстрація</NuxtLink>
       </nav>
     </div>
   </header>

@@ -66,7 +66,9 @@
       await deleteUser(id);
       users.value = users.value.filter((u) => u.id !== id);
     } catch (e: any) {
-      alert(`Помилка видалення користувача з ID ${id}: ${e.response?.data?.message || "Невідома помилка"}`);
+      alert(
+        `Помилка видалення користувача з ID ${id}: ${e.response?.data?.message || "Невідома помилка"}`,
+      );
     } finally {
       deletingId.value = null;
     }

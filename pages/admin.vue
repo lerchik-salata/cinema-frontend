@@ -1,9 +1,7 @@
 <template>
   <div class="admin-page-container">
     <div class="admin-card">
-      <h1 class="admin-title">
-        Панель адміністратора
-      </h1>
+      <h1 class="admin-title">Панель адміністратора</h1>
 
       <nav class="entity-nav">
         <button
@@ -22,7 +20,7 @@
         </button>
       </nav>
 
-      <hr class="separator">
+      <hr class="separator" />
 
       <AdminUsersTable v-if="activeTab === 'users'" />
       <AdminForumsTable v-else-if="activeTab === 'forums'" />

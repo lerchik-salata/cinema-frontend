@@ -12,9 +12,9 @@ export default [
   {
     files: ["**/*.ts", "**/*.vue"],
     languageOptions: {
-      parser: vueParser, 
+      parser: vueParser,
       parserOptions: {
-        parser: tsParser, 
+        parser: tsParser,
         ecmaVersion: "latest",
         sourceType: "module",
       },

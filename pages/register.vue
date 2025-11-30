@@ -1,16 +1,7 @@
 <template>
   <div class="auth-page-container">
-    <AuthForm
-      title="Створити обліковий запис"
-      :action="registerUser"
-      :is-register="true"
-    />
-    <NuxtLink
-      to="/login"
-      class="auth-link"
-    >
-      Вже є акаунт? Увійдіть!
-    </NuxtLink>
+    <AuthForm title="Створити обліковий запис" :action="registerUser" :is-register="true" />
+    <NuxtLink to="/login" class="auth-link">Вже є акаунт? Увійдіть!</NuxtLink>
   </div>
 </template>
 
