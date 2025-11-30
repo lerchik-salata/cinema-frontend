@@ -1,42 +1,36 @@
 <template>
   <div class="auth-page-container">
-    <AuthForm 
-      title="Створити обліковий запис" 
-      :action="registerUser" 
-      :is-register="true"
-    />
-    <NuxtLink to="/login" class="auth-link">
-      Вже є акаунт? Увійдіть!
-    </NuxtLink>
+    <AuthForm title="Створити обліковий запис" :action="registerUser" :is-register="true" />
+    <NuxtLink to="/login" class="auth-link">Вже є акаунт? Увійдіть!</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
-import { registerUser } from '~/api/auth';
+  import { registerUser } from "~/api/auth";
 </script>
 
 <style scoped>
-.auth-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f9fafb;
-  padding: 24px;
-}
+  .auth-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9fafb;
+    padding: 24px;
+  }
 
-.auth-link {
-  margin-top: 16px;
-  font-size: 14px; 
-  color: #0284c7;
-  font-weight: 500;
-  transition: color 0.15s;
-  text-decoration: none;
-}
+  .auth-link {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #0284c7;
+    font-weight: 500;
+    transition: color 0.15s;
+    text-decoration: none;
+  }
 
-.auth-link:hover {
-  color: #0369a1;
-  text-decoration: underline;
-}
+  .auth-link:hover {
+    color: #0369a1;
+    text-decoration: underline;
+  }
 </style>
