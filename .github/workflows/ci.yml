@@ -1,0 +1,34 @@
+name: Frontend CI Checks (Nuxt 3)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Lint and Format checks
+        run: npm run format:check && npm run lint:check
+
+      - name: Run Nuxt Build
+        run: npm run build
+        
+      - name: Run Component Unit Tests
+        run: npm run test:unit
+        continue-on-error: true

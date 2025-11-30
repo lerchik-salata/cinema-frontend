@@ -8,17 +8,17 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --ext .ts --ext .tsx --ext .js --ext .jsx --ext .vue",
-    "lint:check": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint": "eslint --fix . --ext .ts --ext .tsx --ext .js --ext .jsx --ext .vue",
+    "lint:check": "eslint . --ext .ts --ext .tsx --ext .js --ext .jsx --ext .vue --max-warnings=0",
     "format": "prettier --write \"**/*.{ts,vue,js,json,md}\"",
-    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format:check": "prettier --check \"**/*.{ts,vue,js,json,md}\" \"tests/**/*.ts\"",
     "test": "vitest run",
     "test:unit": "vitest run --dir tests/unit",
     "test:watch": "vitest",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts}": [
+    "**/*.{ts,vue,js,json,md}": [
       "prettier --write",
       "eslint --fix"
     ]
@@ -26,6 +26,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.11.3",
+    "@vue/eslint-config-typescript": "^14.6.0",
     "axios": "^1.13.2",
     "defu": "^6.1.4",
     "nuxt": "^4.1.2",
@@ -37,7 +38,7 @@
     "@vue/test-utils": "^2.4.6",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
-    "eslint-plugin-vue": "^10.5.1",
+    "eslint-plugin-vue": "^10.6.2",
     "husky": "^8.0.3",
     "prettier": "^3.6.2",
     "typescript-eslint": "^8.45.0",

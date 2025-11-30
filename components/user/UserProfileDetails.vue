@@ -20,39 +20,39 @@
 </template>
 
 <script setup lang="ts">
-import type { UserResponseDto } from '~/types/user';
+  import type { UserResponseDto } from "~/types/user";
 
-const props = defineProps<{
-  profile: UserResponseDto;
-}>();
+  const props = defineProps<{
+    profile: UserResponseDto;
+  }>();
 </script>
 
 <style scoped>
-.profile-details {
-  margin-bottom: 30px;
-  padding: 15px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-}
-.detail-row {
-  display: flex;
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-.detail-label {
-  font-weight: 600;
-  color: #4a5568;
-  width: 150px;
-}
-.detail-value {
-  color: #1a202c;
-}
-.role-badge {
-  background-color: #38a169;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
+  .profile-details {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+  .detail-row {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .detail-label {
+    font-weight: 600;
+    color: #4a5568;
+    width: 150px;
+  }
+  .detail-value {
+    color: #1a202c;
+  }
+  .role-badge {
+    background-color: #38a169;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
 </style>
