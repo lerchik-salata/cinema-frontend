@@ -1,8 +1,17 @@
 <template>
   <div class="auth-page-container">
-    <AuthForm title="Увійти в систему" :action="loginUser" :is-register="false" />
+    <AuthForm
+      title="Увійти в систему"
+      :action="loginUser"
+      :is-register="false"
+    />
 
-    <NuxtLink to="/register" class="auth-link">Немає акаунту? Зареєструйтесь!</NuxtLink>
+    <NuxtLink
+      to="/register"
+      class="auth-link"
+    >
+      Немає акаунту? Зареєструйтесь!
+    </NuxtLink>
   </div>
 </template>
 

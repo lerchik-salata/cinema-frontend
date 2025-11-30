@@ -1,26 +1,28 @@
 <template>
   <div class="admin-page-container">
     <div class="admin-card">
-      <h1 class="admin-title">Панель адміністратора</h1>
+      <h1 class="admin-title">
+        Панель адміністратора
+      </h1>
 
       <nav class="entity-nav">
         <button
-          @click="activeTab = 'users'"
           :class="{ active: activeTab === 'users' }"
           class="nav-tab"
+          @click="activeTab = 'users'"
         >
           Користувачі
         </button>
         <button
-          @click="activeTab = 'forums'"
           :class="{ active: activeTab === 'forums' }"
           class="nav-tab"
+          @click="activeTab = 'forums'"
         >
           Форум (Пости)
         </button>
       </nav>
 
-      <hr class="separator" />
+      <hr class="separator">
 
       <AdminUsersTable v-if="activeTab === 'users'" />
       <AdminForumsTable v-else-if="activeTab === 'forums'" />
@@ -33,7 +35,7 @@
 
   definePageMeta({
     middleware: [
-      (to, from) => {
+      () => {
         if (process.client && localStorage.getItem("userRole") !== "admin") {
           alert("Доступ заборонено: потрібні права адміністратора.");
           return navigateTo("/", { replace: true });

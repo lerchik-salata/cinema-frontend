@@ -7,8 +7,11 @@
         type="text"
         placeholder="Введіть назву, наприклад, Dune"
         @keyup.enter="performSearch"
-      />
-      <button @click="performSearch" :disabled="pending">
+      >
+      <button
+        :disabled="pending"
+        @click="performSearch"
+      >
         {{ pending ? "Пошук..." : "Знайти" }}
       </button>
     </div>
@@ -17,12 +20,22 @@
       <p>Сталася помилка: {{ error.message }}</p>
     </div>
 
-    <div v-if="movies.length > 0" class="results">
+    <div
+      v-if="movies.length > 0"
+      class="results"
+    >
       <h2>Результати пошуку:</h2>
       <div class="movie-list">
-        <div v-for="movie in movies" :key="movie.id" class="movie-item">
+        <div
+          v-for="movie in movies"
+          :key="movie.id"
+          class="movie-item"
+        >
           <NuxtLink :to="'/movie/' + movie.id">
-            <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="movie.title" />
+            <img
+              :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              :alt="movie.title"
+            >
             <h3>{{ movie.title }}</h3>
             <p>{{ movie.release_date }}</p>
           </NuxtLink>

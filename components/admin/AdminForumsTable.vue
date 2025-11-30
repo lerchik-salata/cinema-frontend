@@ -93,8 +93,7 @@
     updateError.value = null;
 
     try {
-      const postIdString = currentPost.value.id.toString();
-      const updatedPost = await updateForumPost(postIdString, { content: editContent.value });
+      await updateForumPost(currentPost.value.id.toString(), { content: editContent.value });
       cancelEditing();
     } catch (e: any) {
       console.error("Update Error Details:", e.response?.data);
@@ -113,8 +112,8 @@
     try {
       await deleteForumPost(id.toString());
       posts.value = posts.value.filter((p) => p.id !== id);
-    } catch (e) {
-      alert("Помилка видалення!");
+    } catch (e: any) {
+      alert(`Помилка видалення поста ID ${id}: ${e.response?.data?.message || "Невідома помилка"}`);
     } finally {
       deletingId.value = null;
     }

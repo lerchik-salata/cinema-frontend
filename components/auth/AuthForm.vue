@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
   import { ref, reactive } from "vue";
-  import { CreateUserDto, LoginDto } from "~/types/auth";
+  import type { CreateUserDto } from "~/types/auth";
   import { useAuthStore } from "~/stores/auth";
   const authStore = useAuthStore();
 

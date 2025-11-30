@@ -1,8 +1,17 @@
 <template>
   <section class="actions-section">
-    <h2 class="actions-title">Керування акаунтом</h2>
-    <p class="actions-description">Видалення облікового запису є незворотньою дією.</p>
-    <button @click="handleDelete" class="delete-button">Видалити акаунт</button>
+    <h2 class="actions-title">
+      Керування акаунтом
+    </h2>
+    <p class="actions-description">
+      Видалення облікового запису є незворотньою дією.
+    </p>
+    <button
+      class="delete-button"
+      @click="handleDelete"
+    >
+      Видалити акаунт
+    </button>
   </section>
 </template>
 
@@ -21,8 +30,8 @@
           localStorage.removeItem("accessToken");
         }
         await navigateTo("/login", { replace: true });
-      } catch (e) {
-        alert("Помилка видалення акаунту.");
+      } catch (e: any) {
+        alert(`Помилка видалення акаунту: ${e.message}`);
       }
     }
   }
