@@ -1,6 +1,6 @@
 import axiosClient from "./axiosClient";
-import type { UserResponseDto } from "../types/user";
-import type { PostInterface, UpdatePostDto } from "../types/forums";
+import type { UserResponseDto } from "~/types/user";
+import type { PostInterface, UpdatePostDto } from "~/types/forums";
 
 const ADMIN_URL = "/admin";
 
