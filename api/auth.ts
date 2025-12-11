@@ -1,5 +1,5 @@
 import axiosClient from "./axiosClient";
-import type { CreateUserDto, LoginDto } from "../types/auth";
+import type { CreateUserDto, LoginDto } from "~/types/auth";
 
 interface AuthResponse {
   access_token: string;

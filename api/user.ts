@@ -1,5 +1,5 @@
 import axiosClient from "./axiosClient";
-import type { UserResponseDto, UpdateUserDto, ChangePasswordDto } from "../types/user";
+import type { UserResponseDto, UpdateUserDto, ChangePasswordDto } from "~/types/user";
 
 const USERS_URL = "/users/me";
 

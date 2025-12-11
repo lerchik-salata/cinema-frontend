@@ -14,7 +14,7 @@
     </div>
 
     <div v-if="error">
-      <p>Сталася помилка: {{ error.message }}</p>
+      <p>Сталася помилка: {{ error.message || error }}</p>
     </div>
 
     <div v-if="movies.length > 0" class="results">
@@ -34,6 +34,7 @@
 
 <script setup>
   import { ref } from "vue";
+  import { moviesApi } from "@/api/movies";
 
   const searchQuery = ref("");
   const movies = ref([]);
@@ -44,27 +45,18 @@
   const performSearch = async () => {
     if (!searchQuery.value) return;
 
-    pending.value = true; // Починаємо запит
+    pending.value = true;
     error.value = null;
 
     try {
-      const { data } = await useFetch("/api/movies/search", {
-        params: {
-          query: searchQuery.value,
-        },
-      });
+      const results = await moviesApi.search(searchQuery.value);
 
-      // розпаковані дані
-      if (data.value) {
-        movies.value = data.value;
-      } else {
-        movies.value = [];
-      }
+      movies.value = results || [];
     } catch (e) {
       console.error("Помилка під час пошуку:", e);
       error.value = e;
     } finally {
-      pending.value = false; // Завершуємо запит
+      pending.value = false;
     }
   };
 </script>
